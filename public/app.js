@@ -92,9 +92,109 @@ var populateArticles = function(articles){
 var createNewsArticle = function(newsItem){
   var article = document.createElement("article");
   var headline = document.createElement("h2");
+  var myModal = document.createElement("div");
+  var modalContent = document.createElement("div");
+  var modalClose = document.createElement("span");
+  var testText = document.createElement("p");
+  // var img = document.createElement("img");
+  myModal.className = "modal";
+  myModal.id = "myModal";
+  console.log(myModal);
+
+  modalContent.className = "modal-content";
+
+  modalClose.className = "close";
+  modalClose.textContent = "X"; 
+
+  testText.textContent = "some content";
+  //GET MODAL NEWS ITEM
+  var modalNewsItem = createModalNewsItem(newsItem);
+
+
+  //BUTTON
+  var input = document.createElement("input");
+  input.type = "image"; 
+  input.src = newsItem.urlToImage;
+  input.addEventListener("click", handleModalClick);
+
+  modalClose.addEventListener("click", handleModalClose);
+
+  window.addEventListener("click", handleWindowClick);
+
+ 
+
+  // input.onclick = function() {
+  //   // article.appendChild(modalContent);
+
+  //   console.log(myModal);
+  //   console.log("MODAL CLISKED");
+  //   console.log(this);
+  //   console.log(event);
+  //   myModal.style.display = "block";
+  // };
+
+  
+
+//HEADLINE
   headline.textContent = newsItem.title; 
+  // console.log(newsItem);
+  // img.src = newsItem.urlToImage; 
+
+  // <div id="myModal" class="modal">
+
+  //   <!-- Modal content -->
+  //   <div class="modal-content">
+  //     <span class="close">&times;</span>
+  //     <p>Some text in the Modal..</p>
+  //   </div>
+  article.appendChild(myModal);
   article.appendChild(headline);
+  article.appendChild(input);
+  myModal.appendChild(modalContent);
+  modalContent.appendChild(testText);
+  modalContent.appendChild(modalClose);
+  modalContent.appendChild(modalNewsItem);
   return article;
+};
+
+var handleModalClick = function(event){
+  var myModal = document.getElementById('myModal');
+  console.log(myModal);
+
+  console.log("MODAL CLISKED");
+  console.log(this);
+  console.log(event);
+  myModal.style.display = "block";
+
+};
+
+var handleModalClose = function(event){
+  var myModal = document.getElementById('myModal');
+      myModal.style.display = "none";
+};
+
+var handleWindowClick = function(event) {
+var myModal = document.getElementById('myModal');
+    if (event.target == myModal) {
+        myModal.style.display = "none";
+    }
+}
+
+var createModalNewsItem = function(newsItem){
+  var modalArticle = document.createElement("article");
+  var headline = document.createElement("h3");
+  var date = document.createElement("p");
+  var description = document.createElement("p");
+
+  headline.textContent = newsItem.title; 
+  date.textContent = newsItem.publishedAt;
+  description.textContent = newsItem.description; 
+
+  modalArticle.appendChild(headline);
+  modalArticle.appendChild(date);
+  modalArticle.appendChild(description);
+
+  return modalArticle;
 
 };
 
