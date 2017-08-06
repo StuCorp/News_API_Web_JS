@@ -115,11 +115,23 @@ var createNewsArticle = function(newsItem){
   var input = document.createElement("input");
   input.type = "image"; 
   input.src = newsItem.urlToImage;
-  input.addEventListener("click", handleModalClick);
+  // input.addEventListener("click", handleModalClick);
+  input.onclick = function(){
+  myModal.style.display = "block";
+  };
 
-  modalClose.addEventListener("click", handleModalClose);
+  // modalClose.addEventListener("click", handleModalClose);
+  modalClose.onclick = function(){
+    myModal.style.display = "none";
+  };
 
-  window.addEventListener("click", handleWindowClick);
+window.onclick = function(event){
+  console.log(event.target);
+   if (event.target == myModal) {
+  myModal.style.display = "none";
+      }
+};
+  // window.addEventListener("click", handleWindowClick);
 
  
 
@@ -157,28 +169,28 @@ var createNewsArticle = function(newsItem){
   return article;
 };
 
-var handleModalClick = function(event){
-  var myModal = document.getElementById('myModal');
-  console.log(myModal);
+// var handleModalClick = function(event){
+//   var myModal = document.getElementById('myModal');
+//   console.log(myModal);
 
-  console.log("MODAL CLISKED");
-  console.log(this);
-  console.log(event);
-  myModal.style.display = "block";
+//   console.log("MODAL CLISKED");
+//   console.log(this);
+//   console.log(event);
+//   myModal.style.display = "block";
 
-};
+// };
 
-var handleModalClose = function(event){
-  var myModal = document.getElementById('myModal');
-      myModal.style.display = "none";
-};
+// var handleModalClose = function(event){
+//   var myModal = document.getElementById('myModal');
+//       myModal.style.display = "none";
+// };
 
-var handleWindowClick = function(event) {
-var myModal = document.getElementById('myModal');
-    if (event.target == myModal) {
-        myModal.style.display = "none";
-    }
-}
+// var handleWindowClick = function(event) {
+// var myModal = document.getElementById('myModal');
+//     if (event.target == myModal) {
+//         myModal.style.display = "none";
+//     }
+// }
 
 var createModalNewsItem = function(newsItem){
   var modalArticle = document.createElement("article");

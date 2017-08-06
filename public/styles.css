@@ -19,6 +19,13 @@ select{
     background-color: #0184B2;
 }
 
+.news-articles{
+
+}
+
+input[type=image]{
+  width: 300px;
+}
 
 /* The Modal (background) */
 .modal {
