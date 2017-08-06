@@ -19,8 +19,12 @@ select{
     background-color: #0184B2;
 }
 
-.news-articles{
+article{
+  display: inline-block;
+}
 
+.news-articles{
+ display: inline;
 }
 
 input[type=image]{

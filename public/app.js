@@ -125,6 +125,11 @@ var createNewsArticle = function(newsItem){
     myModal.style.display = "none";
   };
 
+  myModal.onclick = function(){
+    myModal.style.display = "none";
+  };
+
+
 window.onclick = function(event){
   console.log(event.target);
    if (event.target == myModal) {
@@ -160,7 +165,7 @@ window.onclick = function(event){
   //     <p>Some text in the Modal..</p>
   //   </div>
   article.appendChild(myModal);
-  article.appendChild(headline);
+  // article.appendChild(headline);
   article.appendChild(input);
   myModal.appendChild(modalContent);
   modalContent.appendChild(testText);
