@@ -111,12 +111,8 @@ var handleSourceSelected = function(){
 };
 
 var handleAllButton = function(){
-  // if (retrieveAPI("allArticles") !== ""){
-  // var allArticles = retrieveAPI("allArticles");
-  //   populateArticles(allArticles);
-  // } else {
-  var sources = retrieveAPI("sourcesAPI");
-  var allArticles= "";
+    var sources = retrieveAPI("sourcesAPI");
+    var allArticles= "";
   //clear local storage
   // storeLocally(allArticles, "allArticles");
   console.log(sources);
@@ -124,7 +120,6 @@ var handleAllButton = function(){
   sources.forEach(function(source){
     var url = urlBuilder(source.id);
     makeRequest(url, requestALLAPIS);
-    // allArticles.concat(articles);
   });
   // debugger;
   allArticles = retrieveAPI("allArticles");
@@ -145,13 +140,10 @@ var populateArticles = function(articles){
     articlesSection.removeChild(articlesSection.firstChild);
   }
 
-  // articles = articles.articles;
-  // articles.pop();
   articles.forEach(function(article){
     var article = createNewsArticle(article);
     articlesSection.appendChild(article);
   });
-  // console.log(articles);
 };
 
 var createNewsArticle = function(newsItem){
@@ -161,7 +153,6 @@ var createNewsArticle = function(newsItem){
   var modalContent = document.createElement("div");
   var modalClose = document.createElement("span");
   var testText = document.createElement("p");
-  // var img = document.createElement("img");
   myModal.className = "modal";
   myModal.id = "myModal";
   console.log(myModal);
@@ -179,12 +170,10 @@ var createNewsArticle = function(newsItem){
   var input = document.createElement("input");
   input.type = "image"; 
   input.src = newsItem.urlToImage;
-  // input.addEventListener("click", handleModalClick);
   input.onclick = function(){
     myModal.style.display = "block";
   };
 
-  // modalClose.addEventListener("click", handleModalClose);
   modalClose.onclick = function(){
     myModal.style.display = "none";
   };
@@ -200,65 +189,18 @@ var createNewsArticle = function(newsItem){
       myModal.style.display = "none";
     }
   };
-  // window.addEventListener("click", handleWindowClick);
-
-
-
-  // input.onclick = function() {
-  //   // article.appendChild(modalContent);
-
-  //   console.log(myModal);
-  //   console.log("MODAL CLISKED");
-  //   console.log(this);
-  //   console.log(event);
-  //   myModal.style.display = "block";
-  // };
-
-  
+   
 
 //HEADLINE
 headline.textContent = newsItem.title; 
-  // console.log(newsItem);
-  // img.src = newsItem.urlToImage; 
-
-  // <div id="myModal" class="modal">
-
-  //   <!-- Modal content -->
-  //   <div class="modal-content">
-  //     <span class="close">&times;</span>
-  //     <p>Some text in the Modal..</p>
-  //   </div>
-  article.appendChild(myModal);
-  // article.appendChild(headline);
-  article.appendChild(input);
-  myModal.appendChild(modalContent);
-  modalContent.appendChild(modalClose);
-  modalContent.appendChild(modalNewsItem);
-  return article;
+article.appendChild(myModal);
+article.appendChild(input);
+myModal.appendChild(modalContent);
+modalContent.appendChild(modalClose);
+modalContent.appendChild(modalNewsItem);
+return article;
 };
 
-// var handleModalClick = function(event){
-//   var myModal = document.getElementById('myModal');
-//   console.log(myModal);
-
-//   console.log("MODAL CLISKED");
-//   console.log(this);
-//   console.log(event);
-//   myModal.style.display = "block";
-
-// };
-
-// var handleModalClose = function(event){
-//   var myModal = document.getElementById('myModal');
-//       myModal.style.display = "none";
-// };
-
-// var handleWindowClick = function(event) {
-// var myModal = document.getElementById('myModal');
-//     if (event.target == myModal) {
-//         myModal.style.display = "none";
-//     }
-// }
 
 var createModalNewsItem = function(newsItem){
   var modalArticle = document.createElement("article");
