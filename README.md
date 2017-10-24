@@ -1,8 +1,8 @@
 # 4thEstate
 
 ## Interactive image-based news browsing app!
-A JS web app that queries the News API (https://newsapi.org) for current news and dynamically populates the page with clickable images of all the stories returned from the source (a news agency selected from the dropdown or ALL THE NEWS AGENCIES). Clicking an image opens a modal box with the head, summary and link to the full article. 
-(* This was a product of a class homework to make a web app that utilises an external API) 
+A JS web app that queries the News API (https://newsapi.org) for current news and dynamically populates the page with clickable images of all the stories returned from the source (a news agency selected from the dropdown or ALL THE NEWS AGENCIES). Clicking an image opens a modal box with the headline, summary and link to the full article. 
+*(This was a product of a class homework; the remit: to make a web app that utilises an external API)*
 
 <img width="1254" alt="4thEstate screenshot, main page" src="https://user-images.githubusercontent.com/27961805/31964149-0b09d8de-b8fb-11e7-9ae1-0f0d6f012048.png">
 
@@ -21,11 +21,9 @@ A JS web app that queries the News API (https://newsapi.org) for current news an
 * npm
 * *a website browser*
 
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
-* [Node.js] - 
+* [Node.js] 
 * [Express.js] - Web framework 
  
 ## Author
